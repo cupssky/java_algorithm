@@ -1,0 +1,16 @@
+# IntelliJ
+out/
+out/*
+.idea/
+*.iml
+.idea/*
+*.idea
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/workspace.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches
