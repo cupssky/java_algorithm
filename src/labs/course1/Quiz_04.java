@@ -1,16 +1,18 @@
 package labs.course1;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Quiz_04 {
 
   public static void main(String[] args) throws IOException {
-/*
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     String[] cols = bufferedReader.readLine().split(" ");
     int n = Integer.parseInt(cols[0]);
     int m = Integer.parseInt(cols[1]);
     int[][] array = new int[n][m];
+    int[][] pivot = new int[4][1];
 
     int zeroCount = 0;
     int oneCount = 0;
@@ -36,7 +38,7 @@ public class Quiz_04 {
             zeroCount += 1;
           } else {
             zeroCount++;
-            if (zeroCount >= 4) {
+            if (zeroCount >= pivot.length) {
               length = zeroCount;
             }
           }
@@ -83,7 +85,6 @@ public class Quiz_04 {
       locate = 0;
       clear = 0;
       System.out.println(locate + " " + clear);
-    }*/
-
+    }
   }
 }

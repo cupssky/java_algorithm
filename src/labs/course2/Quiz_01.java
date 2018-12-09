@@ -1,64 +1,34 @@
 package labs.course2;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class Quiz_01 {
 
   public static void main(String[] args) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-    String[] cols = bufferedReader.readLine().split(" ");
-    int width = Integer.parseInt(cols[0]);
-    int height = Integer.parseInt(cols[1]);
-    int[][] array = new int[height][width];
+    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
-    for (int i = 0; i < height; i++) {
+    int[][] array = new int[9][9];
+    int max = 0;
+    int idxI = 0;
+    int idxJ = 0;
+    for (int i = 0; i < 9; i++) {
       String[] value = bufferedReader.readLine().split(" ");
-      for (int j = 0; j < width; j++) {
+      for (int j = 0; j < 9; j++) {
         array[i][j] = Integer.parseInt(value[j]);
-      }
-    }
-
-    int compareLength = height;
-    int findWidthIndex = -1;
-
-    while (compareLength > 3 && -1 == findWidthIndex) {
-      for (int i = 0; i < width; i++) {
-        findWidthIndex = i;
-        break;
-      }
-      if (-1 == findWidthIndex) {
-        compareLength--;
-      }
-    }
-
-    if (-1 == findWidthIndex) {
-      System.out.print(0 + " " + 0);
-    } else {
-      int checkBlankLine = compareLength - 1;
-      int canClearLineNum = 0;
-
-      while (checkBlankLine >= compareLength - 4) {
-        boolean satisfied = true;
-        for (int i = 0; i < width; i++) {
-          if (i == findWidthIndex) {
-            continue;
-          }
-          satisfied = false;
-          break;
+        if (max < array[i][j]) {
+          max = array[i][j];
+          idxI = i + 1;
+          idxJ = j + 1;
         }
-        if (satisfied) {
-          canClearLineNum++;
-        }
-        --checkBlankLine;
-      }
-
-      if (0 == canClearLineNum) {
-        System.out.print(0 + " " + 0);
-      } else {
-        System.out.print(findWidthIndex + " " + canClearLineNum);
       }
     }
+    System.out.println(max);
+    System.out.println(idxI + " " + idxJ);
+    bufferedWriter.flush();
   }
 }

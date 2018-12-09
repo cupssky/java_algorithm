@@ -1,8 +1,8 @@
-package labs.basic;
+package labs.level2.array;
 
 import java.util.Scanner;
 
-public class Quiz_30 {
+public class Quiz_15 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
@@ -10,12 +10,14 @@ public class Quiz_30 {
     int[][] array = new int[n][n];
     int k = 0;
 
-    for (int v = 0; v < n * 2; v++) {
-      for (int i = 0; i < array.length; i++) {
-        int j = v - i;
-        if (j >= 0 && j < n) {
-          k = k + 1;
-          array[i][j] = k;
+    // 0 0 0 1
+    // 1 0
+    for (int i = 0; i < n * 2; i++) {
+      for (int j = 0; j < array.length; j++) {
+        int value = i - j;
+        if (value >= 0 && value < n) {
+          k++;
+          array[j][value] = k;
         }
       }
     }
@@ -26,6 +28,6 @@ public class Quiz_30 {
       }
       System.out.println();
     }
-
   }
+
 }

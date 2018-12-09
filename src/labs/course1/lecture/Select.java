@@ -14,6 +14,7 @@ public class Select {
       array[i] = scanner.nextInt();
     }
 
+    //i번째부터 끝까지 최소값 , i 즉 idx는 최소값 위치입니다
     for (int i = 0; i < array.length; i++) {
       int idx = i;
       for (int j = i; j < array.length; j++) {

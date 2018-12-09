@@ -6,35 +6,30 @@ public class Quiz_27 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    int N = scanner.nextInt();
-    int S = scanner.nextInt();
-    int g;
-    int k = 1;
-    int p = N;
-    String result = "";
-    for (int i = 0; i < N; i++) {
-      g = i + k;
-      for (int j = 0; j < p - 1; j++) {
+    int n = scanner.nextInt();
+    int s = scanner.nextInt();
+    String value = "";
+    for (int i = 1; i < n + 1; i++) {
+      int idx = i;
+      for (int j = 0; j < n - i; j++) {
         System.out.print(" ");
       }
-      k++;
-      for (int l = 0; l < g; l++) {
-        result = result + S;
-        S++;
-        if (S > 9) {
-          S -= 9;
+      for (int j = 0; j < 2 * i - 1; j++) {
+        value += s++;
+        if (s > 9) {
+          s = 1;
         }
       }
-      p--;
-      if (i % 2 != 0) {
-        System.out.println(result);
+      if (i % 2 == 0) {
+        System.out.println(value);
       } else {
-        for (int v = result.length() - 1; v >= 0; v--) {
-          System.out.print(result.charAt(v));
+        for (int a = value.length() - 1; a >= 0; a--) {
+          System.out.print(value.charAt(a));
         }
         System.out.println();
       }
-      result = "";
+      value = "";
     }
   }
 }
+

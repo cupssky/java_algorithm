@@ -12,9 +12,9 @@ public class Insert {
     for (int i = 0; i < array.length; i++) {
       array[i] = scanner.nextInt();
     }
-
+    // i 왼쪽은 정렬이 되어있음, 왼쪽으로 넣어야 한다
     for (int i = 0; i < array.length; i++) {
-      for (int j = i; j > 1; j--) {
+      for (int j = i; j >= 1; j--) {
         if (array[j - 1] > array[j]) {
           int temp = array[j - 1];
           array[j - 1] = array[j];
@@ -23,6 +23,9 @@ public class Insert {
           break;
         }
       }
+    }
+    for (int i = 0; i < array.length; i++) {
+      System.out.println(array[i]);
     }
   }
 

@@ -10,23 +10,6 @@ public class record {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
-    int[] array = new int[n];
-    int score = 0;
-    int oneScore = 0;
-
-    for (int i = 0; i < n; i++) {
-      array[i] = scanner.nextInt();
-    }
-
-    for (int i = 0; i < n; i++) {
-      if (array[i] == 1) {
-        score++;
-        oneScore += score;
-      } else {
-        score = 1;
-      }
-    }
-
-    System.out.print(oneScore);
+    int s = scanner.nextInt();
   }
 }
