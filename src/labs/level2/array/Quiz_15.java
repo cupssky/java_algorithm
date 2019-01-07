@@ -12,6 +12,7 @@ public class Quiz_15 {
 
     // 0 0 0 1
     // 1 0
+    // 0 0 0
     for (int i = 0; i < n * 2; i++) {
       for (int j = 0; j < array.length; j++) {
         int value = i - j;

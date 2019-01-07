@@ -2,7 +2,7 @@ package labs.course1.lecture;
 
 import java.util.Scanner;
 
-//원소를 차례대로 정렬된 배열에 삽입시킴
+//원소를 차례대로 정렬된 배열에 삽입시킴 , 엔 제곱이다.
 public class Insert {
 
   public static void main(String[] args) {

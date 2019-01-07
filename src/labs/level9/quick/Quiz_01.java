@@ -53,7 +53,7 @@ public class Quiz_01 {
   static int getLeft(int[] array, int start, int end, int pivot, int[] result) {
     int index = 0;
     for (int i = start; i <= end; i++) {
-      if (array[i] <= pivot) {
+      if (array[i] > pivot) {
         result[index++] = array[i];
       }
     }
@@ -63,7 +63,7 @@ public class Quiz_01 {
   static int getRight(int[] array, int start, int end, int pivot, int[] result) {
     int index = 0;
     for (int i = start; i <= end; i++) {
-      if (array[i] > pivot) {
+      if (array[i] <= pivot) {
         result[index++] = array[i];
       }
     }

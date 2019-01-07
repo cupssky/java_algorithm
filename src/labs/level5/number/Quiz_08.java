@@ -24,7 +24,5 @@ public class Quiz_08 {
     }
 
     System.out.println(tempA * tempB / a);
-
-
   }
 }

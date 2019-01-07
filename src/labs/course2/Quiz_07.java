@@ -40,7 +40,7 @@ public class Quiz_07 {
         }
 
         for (int k = 0; k < n; k++) {
-          System.out.println("test: " + student[k]);
+          System.out.println("Test: " + student[k]);
           if (student[k] != 0) {
             count++;
             student[k] = 0;

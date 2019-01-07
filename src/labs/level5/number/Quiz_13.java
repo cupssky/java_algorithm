@@ -1,8 +1,9 @@
 package labs.level5.number;
-//pfactorization
+
 
 import java.util.Scanner;
 
+//pfactorization 문제를 이해 못함
 public class Quiz_13 {
 
   public static void main(String[] args) {

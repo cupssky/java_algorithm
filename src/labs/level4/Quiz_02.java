@@ -37,7 +37,7 @@ public class Quiz_02 {
                 count++;
               }
             }
-            //System.out.println(count);
+
             if (count >= 4) {
               if (maxCount < count) {
                 maxCount = count;
@@ -64,6 +64,12 @@ public class Quiz_02 {
       }
     }
 
+    /*
+    0 1 1 1 0
+    1 0 1 0 0
+    1 1 0 1 1
+    1 0 0 1 0
+     */
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
         if (array[i][j] == 1) {

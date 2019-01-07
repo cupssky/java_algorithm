@@ -22,7 +22,6 @@ public class Select {
           idx = j;
         }
       }
-
       int temp = array[i];
       array[i] = array[idx];
       array[idx] = temp;

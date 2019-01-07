@@ -70,6 +70,7 @@ public class Merge {
     //array[s1~e2] 까지에 temp의 값을 복사
 
     for (int i = start1; i <= end2; i++) {
+      //temp는 0부터 시작
       array[i] = temp[i - start1];
     }
 
