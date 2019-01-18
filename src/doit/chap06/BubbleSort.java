@@ -15,6 +15,7 @@ public class BubbleSort {
 
     bubbleSort(array, num);
     System.out.println("정렬완료");
+
     for (int i = 0; i < array.length; i++) {
       System.out.println(array[i]);
     }

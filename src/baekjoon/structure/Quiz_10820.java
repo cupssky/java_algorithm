@@ -6,26 +6,25 @@ public class Quiz_10820 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-
     while (scanner.hasNextLine()) {
-      String value = scanner.next();
-      int lower = 0;
+      String inputs = scanner.nextLine();
       int upper = 0;
-      int black = 0;
-      int num = 0;
-      for (int i = 0; i < value.length(); i++) {
-        if (value.toCharArray()[i] >= 97 && value.charAt(i) <= 122) {
-          lower++;
-        } else if (value.toCharArray()[i] >= 65 && value.toCharArray()[i] <= 90) {
-          upper++;
-        } else if (value.toCharArray()[i] == ' ') {
-          black++;
-        } else if (value.toCharArray()[i] >= 48 && value.toCharArray()[i] <= 57) {
-          num++;
+      int lower = 0;
+      int blank = 0;
+      int number = 0;
+      for (int i = 0; i < inputs.length(); i++) {
+        int c = inputs.charAt(i);
+        if (c >= 'a' && c <= 'z') {
+          lower += 1;
+        } else if (c >= 'A' && c <= 'Z') {
+          upper += 1;
+        } else if (c >= '0' && c <= '9') {
+          number += 1;
+        } else if (c == ' ') {
+          blank += 1;
         }
       }
-      System.out.println(lower + " " + upper + " " + num + " " + black + " ");
+      System.out.println(lower + " " + upper + " " + number + " " + blank);
     }
-
   }
 }

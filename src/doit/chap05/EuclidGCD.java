@@ -9,11 +9,11 @@ public class EuclidGCD {
     System.out.println("최대공약수 :" + gcd(scanner.nextInt(), scanner.nextInt()));
   }
 
-  static int gcd(int x, int y) {
-    if (y == 0) {
-      return x;
+  private static int gcd(int a, int b) {
+    if (b == 0) {
+      return a;
     } else {
-      return gcd(y, x % y);
+      return gcd(b, a % b);
     }
   }
 }

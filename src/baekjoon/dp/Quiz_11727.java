@@ -2,7 +2,7 @@ package baekjoon.dp;
 
 import java.util.Scanner;
 
-public class Quiz_11726 {
+public class Quiz_11727 {
 
   private static int[] d;
 
@@ -16,10 +16,10 @@ public class Quiz_11726 {
   private static int go(int n) {
     if (n <= 1) {
       return 1;
-    } else if (d[n] != 0) {
+    } else if (d[n] > 0) {
       return d[n];
     } else {
-      d[n] = go(n - 1) + go(n - 2);
+      d[n] = 2 * go(n - 2) + go(n - 1);
       d[n] = d[n] % 10007;
       return d[n];
     }

@@ -11,7 +11,7 @@ public class BinSearch {
 
     array[0] = scanner.nextInt();
 
-    for (int i = 1; i < array.length; i++) {
+    for (int i = 0; i < array.length; i++) {
       do {
         array[i] = scanner.nextInt();
       } while (array[i] < array[i - 1]);
@@ -23,18 +23,18 @@ public class BinSearch {
   static int binSearch(int[] array, int num, int key) {
     int left = 0;
     int right = num - 1;
+    int center = (left + right) / 2;
 
     do {
-      int center = (left + right) / 2;
       if (array[center] == key) {
         return center;
-      } else if (array[center] < key) {
+      } else if (array[center] > key) {
         left = center + 1;
-      } else {
+      } else if (array[center] < key) {
         right = center - 1;
       }
     } while (left <= right);
-
+    
     return -1;
   }
 }

@@ -6,17 +6,16 @@ public class Factorial {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    int num = scanner.nextInt();
+    int n = scanner.nextInt();
+    System.out.print(factorial(n));
 
   }
 
-  static int factorial(int n) {
-    if (n > 0) {
-      n = n * factorial(n - 1);
-      return n;
-    } else {
+  private static int factorial(int n) {
+    if (n == 1) {
       return 1;
+    } else {
+      return factorial(n - 1) + n;
     }
   }
-
 }

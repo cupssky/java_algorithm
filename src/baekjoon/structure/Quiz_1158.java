@@ -13,10 +13,7 @@ public class Quiz_1158 {
 
     Queue<Integer> queue = new LinkedList<>();
 
-    for (int i = 0; i < n; i++) {
-      queue.add(i);
-    }
-
+    StringBuilder sb = new StringBuilder();
 
   }
 }

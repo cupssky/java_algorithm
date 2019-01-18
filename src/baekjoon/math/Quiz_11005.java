@@ -1,22 +1,25 @@
 package baekjoon.math;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Quiz_11005 {
 
-  public static void main(String[] args) throws IOException {
-    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-    StringTokenizer stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-    int n = Integer.parseInt(stringTokenizer.nextToken());
-    int b = Integer.parseInt(stringTokenizer.nextToken());
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    int n = scanner.nextInt();
+    int b = scanner.nextInt();
+
+    StringBuilder stringBuilder = new StringBuilder();
 
     while (n > 0) {
       int r = n % b;
-
-      n = n / b;
+      if (r < 10) {
+        stringBuilder.append((char) (r + '0'));
+      } else {
+        stringBuilder.append((char) (r + 'A' - 10));
+      }
+      n /= b;
     }
+    System.out.print(stringBuilder.reverse());
   }
 }

@@ -9,28 +9,27 @@ public class Quiz_9012 {
   public static void main(String[] args) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     int n = Integer.parseInt(bufferedReader.readLine());
+    while (n-- > 0) {
+      System.out.println(isValid(bufferedReader.readLine()));
+    }
+  }
+
+  public static String isValid(String s) {
     int count = 0;
-    for (int i = 0; i < n; i++) {
-      String inputs = bufferedReader.readLine();
-      for (int j = 0; j < inputs.length(); j++) {
-        char temp = inputs.charAt(j);
-        if (temp == '(') {
-          count++;
-          System.out.println(1);
-        } else {
-          if (count > 0) {
-            count--;
-            System.out.println(-1);
-          } else {
-            continue;
-          }
-        }
-      }
-      if (count == 0) {
-        System.out.println("YES");
+    for (int i = 0; i < s.length(); i++) {
+      if (s.charAt(i) == '(') {
+        count++;
       } else {
-        System.out.println("NO");
+        count--;
       }
+      if (count < 0) {
+        return "NO";
+      }
+    }
+    if (count == 0) {
+      return "YES";
+    } else {
+      return "NO";
     }
   }
 }

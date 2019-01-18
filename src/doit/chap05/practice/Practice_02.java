@@ -12,7 +12,7 @@ public class Practice_02 {
   static int gcd(int x, int y) {
     while (y != 0) {
       int temp = y;
-      y = x & y;
+      y = x % y;
       x = temp;
     }
     return x;

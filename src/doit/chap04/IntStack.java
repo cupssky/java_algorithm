@@ -1,5 +1,7 @@
 package doit.chap04;
 
+import doit.chap04.IntQueue.OverflowIntQueueException;
+
 public class IntStack {
 
   private int max;
@@ -7,8 +9,8 @@ public class IntStack {
   private int[] stk;
 
   public IntStack(int capacity) {
-    ptr = 0;
-    max = capacity;
+    this.ptr = 0;
+    this.max = capacity;
     try {
       stk = new int[max];
     } catch (OutOfMemoryError e) {
@@ -16,29 +18,32 @@ public class IntStack {
     }
   }
 
-  public int push(int x) throws OverflowIntStackException {
+  public int push(int x) throws OverflowIntQueueException {
     if (ptr >= max) {
       throw new OverflowIntStackException();
+    } else {
+      return stk[ptr++] = x;
     }
-    return stk[ptr++] = x;
   }
 
   public int pop(int x) throws EmptyIntStackException {
     if (ptr <= 0) {
       throw new EmptyIntStackException();
+    } else {
+      return stk[--ptr];
     }
-    return stk[--ptr];
   }
 
   public int peek() throws EmptyIntStackException {
     if (ptr <= 0) {
       throw new EmptyIntStackException();
+    } else {
+      return stk[max - 1];
     }
-    return stk[ptr - 1];
   }
 
   public int indexOf(int x) {
-    for (int i = ptr; ptr > i; i--) {
+    for (int i = ptr - 1; i >= 0; i--) {
       if (stk[i] == x) {
         return i;
       }
@@ -68,22 +73,21 @@ public class IntStack {
 
   public void dump() {
     if (ptr <= 0) {
-      System.out.print("스택 없음");
+
     } else {
       for (int i = 0; i < ptr; i++) {
-        System.out.print(stk[i]);
+        System.out.print(stk[i] + " ");
       }
     }
   }
 
-  public class EmptyIntStackException extends RuntimeException {
+  public static class EmptyIntStackException extends RuntimeException {
 
     public EmptyIntStackException() {
-
     }
   }
 
-  public class OverflowIntStackException extends RuntimeException {
+  public static class OverflowIntStackException extends RuntimeException {
 
     public OverflowIntStackException() {
     }
