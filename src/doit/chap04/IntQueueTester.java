@@ -32,19 +32,19 @@ public class IntQueueTester {
           try {
             x = s.deque();
             System.out.println("디큐한 데이터 : " + x);
-          } catch (IntQueue.EmptyintQueueException e) {
+          } catch (IntQueue.EmptyIntQueueException e) {
             System.out.println("큐가 비어 있습니다.");
           }
         case 3:
           try {
             x = s.peek();
             System.out.println("피크 한 데이터 : " + x);
-          } catch (IntQueue.EmptyintQueueException e) {
+          } catch (IntQueue.EmptyIntQueueException e) {
             System.out.println("큐가 비었음");
           }
           break;
         case 4:
-          s.dump();
+          //s.dump();
           break;
       }
     }

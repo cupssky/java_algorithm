@@ -8,9 +8,9 @@ public class IntQueue {
   private int num;
   private int[] que;
 
+
   public IntQueue(int capacity) {
-    num = front = rear;
-    max = capacity;
+    num = front = rear = 0;
     try {
       que = new int[max];
     } catch (OutOfMemoryError e) {
@@ -23,16 +23,15 @@ public class IntQueue {
       throw new OverflowIntQueueException();
     }
     que[rear++] = x;
-    num++;
     if (rear == max) {
       rear = 0;
     }
     return x;
   }
 
-  public int deque() throws EmptyintQueueException {
+  public int deque() throws EmptyIntQueueException {
     if (num <= 0) {
-      throw new EmptyintQueueException();
+      throw new EmptyIntQueueException();
     }
     int x = que[front++];
     num--;
@@ -42,9 +41,9 @@ public class IntQueue {
     return x;
   }
 
-  public int peek() throws EmptyintQueueException {
+  public int peek() throws EmptyIntQueueException {
     if (num <= 0) {
-      throw new EmptyintQueueException();
+      throw new EmptyIntQueueException();
     }
     return que[front];
   }
@@ -71,29 +70,24 @@ public class IntQueue {
     return num;
   }
 
+  public boolean isEmpty() {
+    return num <= 0;
+  }
+
   public boolean isFull() {
     return num >= max;
   }
 
-  public void dump() {
-    if (num <= 0) {
-      System.out.print("큐가 비어있습니다.");
-    } else {
-      for (int i = 0; i < num; i++) {
-        System.out.print(que[(i + front) % max] + " ");
-      }
-    }
-  }
+  public class EmptyIntQueueException extends RuntimeException {
 
-  public class EmptyintQueueException extends RuntimeException {
-
-    public EmptyintQueueException() {
+    public EmptyIntQueueException() {
     }
   }
 
   public class OverflowIntQueueException extends RuntimeException {
 
     public OverflowIntQueueException() {
+
     }
   }
 }
