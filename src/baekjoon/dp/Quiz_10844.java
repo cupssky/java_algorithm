@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Quiz_10844 {
 
+  public static long mod = 1000000000L;
+
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
-    int[][] d = new int[n + 1][10];
+    int[][] d = new int[101][10];
 
     for (int i = 1; i <= 9; i++) {
       d[1][i] = 1;
@@ -22,13 +24,18 @@ public class Quiz_10844 {
         if (j + 1 <= 9) {
           d[i][j] += d[i - 1][j + 1];
         }
-
+        d[i][j] %= mod;
       }
     }
 
+    long ans = 0;
+
     for (int i = 0; i <= 9; i++) {
-      System.out.println(d[n][i]);
+      ans += d[n][i];
     }
+
+    ans %= mod;
+    System.out.println(ans);
   }
 
 }
