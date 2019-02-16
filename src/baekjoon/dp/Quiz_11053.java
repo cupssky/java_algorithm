@@ -15,6 +15,7 @@ public class Quiz_11053 {
 
     int[] d = new int[n];
     int value = 0;
+
     for (int i = 0; i < n; i++) {
       d[i] = 1;
       for (int j = 0; j < i; j++) {

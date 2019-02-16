@@ -27,9 +27,11 @@ public class Quiz_11724 {
     }
 
     c = new boolean[n + 1];
+
     for (int i = 0; i < n; i++) {
       dfs(i);
     }
+
     System.out.print(count);
   }
 

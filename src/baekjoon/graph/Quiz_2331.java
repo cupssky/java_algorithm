@@ -10,4 +10,8 @@ public class Quiz_2331 {
     int p = scanner.nextInt();
   }
 
+  private static int leng(int a, int p, int cnt) {
+
+    return leng(a, p, cnt + 1);
+  }
 }

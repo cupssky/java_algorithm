@@ -8,21 +8,20 @@ public class Quiz_1707 {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     int t = scanner.nextInt();
-
     while (t-- > 0) {
       int n = scanner.nextInt();
       int m = scanner.nextInt();
-      ArrayList<Integer>[] arrayList = (ArrayList<Integer>[]) new ArrayList[n + 1];
+      ArrayList<Integer>[] a = new ArrayList[n + 1];
 
       for (int i = 1; i <= n; i++) {
-        arrayList[i] = new ArrayList<>();
+        a[i] = new ArrayList<>();
       }
 
       for (int i = 0; i < m; i++) {
-        int u = scanner.nextInt();
-        int v = scanner.nextInt();
-        arrayList[u].add(v);
-        arrayList[v].add(u);
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+        a[x].add(y);
+        a[y].add(x);
       }
 
       int[] color = new int[n + 1];
@@ -30,12 +29,12 @@ public class Quiz_1707 {
 
       for (int i = 1; i <= n; i++) {
         if (color[i] == 0) {
-          dfs(arrayList, color, i, 1);
+          dfs(a, color, i, 1);
         }
       }
 
       for (int i = 1; i <= n; i++) {
-        for (int j : arrayList[i]) {
+        for (int j : a[i]) {
           if (color[i] == color[j]) {
             ok = false;
           }
@@ -43,11 +42,12 @@ public class Quiz_1707 {
       }
 
       if (ok) {
-        System.out.println("YES");
+        System.out.print("YES");
       } else {
-        System.out.println("NO");
+        System.out.print("NO");
       }
     }
+
   }
 
   private static void dfs(ArrayList<Integer>[] arrayLists, int[] color, int x, int c) {
