@@ -22,15 +22,6 @@ public class Quiz_04 {
       }
     }
 
-    HashMap<Integer, Integer> resultMap = new HashMap<>();
-//    for (String value : map.keySet()) {
-//      for (int i = 0; i < genres.length; i++) {
-//        if (genres[i].equals(value)) {
-//          r
-//        }
-//      }
-//    }
-
     return answer;
   }
 }
