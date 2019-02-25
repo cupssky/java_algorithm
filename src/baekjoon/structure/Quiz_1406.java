@@ -5,47 +5,54 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 에디터
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_1406 {
 
   public static void main(String[] args) throws IOException {
+
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-    String inputs = bufferedReader.readLine();
+    String value = bufferedReader.readLine();
+    StringBuilder stringBuilder = new StringBuilder();
+
+    int t = Integer.parseInt(bufferedReader.readLine());
 
     Stack<Character> left = new Stack<>();
     Stack<Character> right = new Stack<>();
-    int n = Integer.parseInt(bufferedReader.readLine());
 
-    for (int i = 0; i < inputs.length(); i++) {
-      left.push(inputs.charAt(i));
+    for (char i : value.toCharArray()) {
+      left.add(i);
     }
 
-    while (n-- > 0) {
-      String[] values = bufferedReader.readLine().split(" ");
-      char input = values[0].charAt(0);
-      if (input == 'L') {
+    while (t-- > 0) {
+      String[] button = bufferedReader.readLine().split(" ");
+      if (button[0].equals("L")) {
         if (!left.isEmpty()) {
-          right.push(left.pop());
+          right.add(left.pop());
         }
-      } else if (input == 'D') {
+      } else if (button[0].equals("D")) {
         if (!right.isEmpty()) {
-          left.push(right.pop());
+          left.add(right.pop());
         }
-      } else if (input == 'B') {
+      } else if (button[0].equals("B")) {
         if (!left.isEmpty()) {
           left.pop();
         }
-      } else if (input == 'P') {
-        char c = values[1].charAt(0);
-        left.push(c);
+      } else if (button[0].equals("P")) {
+        String p = button[1];
+        left.add(p.charAt(0));
       }
     }
-    StringBuilder sb = new StringBuilder();
-    while (!left.empty()) {
-      right.push(left.pop());
+    while (!right.isEmpty()) {
+      left.add(right.pop());
     }
-    while (!right.empty()) {
-      sb.append(right.pop());
+    while (!left.isEmpty()) {
+      stringBuilder.append(left.pop());
     }
-    System.out.println(sb);
+
+    System.out.println(stringBuilder.reverse());
   }
 }

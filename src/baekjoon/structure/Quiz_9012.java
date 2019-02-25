@@ -1,35 +1,36 @@
 package baekjoon.structure;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 괄호
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_9012 {
 
-  public static void main(String[] args) throws IOException {
-    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-    int n = Integer.parseInt(bufferedReader.readLine());
-    while (n-- > 0) {
-      System.out.println(isValid(bufferedReader.readLine()));
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    int t = scanner.nextInt();
+    while (t-- > 0) {
+      String value = scanner.next();
+      int count = 0;
+      for (char v : value.toCharArray()) {
+        if (v == '(') {
+          count++;
+        } else if (v == ')') {
+          count--;
+        }
+        if (count < 0) {
+          break;
+        }
+      }
+      if (count == 0) {
+        System.out.println("YES");
+      } else {
+        System.out.println("NO");
+      }
     }
   }
 
-  public static String isValid(String s) {
-    int count = 0;
-    for (int i = 0; i < s.length(); i++) {
-      if (s.charAt(i) == '(') {
-        count++;
-      } else {
-        count--;
-      }
-      if (count < 0) {
-        return "NO";
-      }
-    }
-    if (count == 0) {
-      return "YES";
-    } else {
-      return "NO";
-    }
-  }
 }

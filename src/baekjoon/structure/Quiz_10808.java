@@ -2,21 +2,26 @@ package baekjoon.structure;
 
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 알파벳 개수
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_10808 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    String inputs = scanner.next();
+    String value = scanner.nextLine();
+    StringBuilder stringBuilder = new StringBuilder();
 
-    int[] array = new int[26];
+    int[] count = new int[26];
 
-    for (int i = 0; i < inputs.length(); i++) {
-      array[inputs.charAt(i) - 'a']++;
+    for (char v : value.toCharArray()) {
+      count[v - 'a']++;
     }
-
-    for (int i : array) {
-      System.out.print(i + " ");
+    for (int n : count) {
+      stringBuilder.append(n + " ");
     }
-
+    System.out.print(stringBuilder);
   }
 }

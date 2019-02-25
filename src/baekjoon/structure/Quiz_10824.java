@@ -2,24 +2,21 @@ package baekjoon.structure;
 
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 네 수
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_10824 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    int a = scanner.nextInt();
-    int b = scanner.nextInt();
-    int c = scanner.nextInt();
-    int d = scanner.nextInt();
+    String a = scanner.next();
+    String b = scanner.next();
+    String c = scanner.next();
+    String d = scanner.next();
 
-    String first = "";
-    first += a;
-    first += b;
-
-    String last = "";
-    last += c;
-    last += d;
-    long value = Long.parseLong(first) + Long.parseLong(last);
-
+    long value = Long.parseLong(a + b) + Long.parseLong(c + d);
     System.out.print(value);
   }
 }
