@@ -6,6 +6,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. DFS와 BFS
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_1260 {
 
   static ArrayList<Integer>[] a;
@@ -16,12 +21,12 @@ public class Quiz_1260 {
     int n = scanner.nextInt();
     int m = scanner.nextInt();
     int v = scanner.nextInt();
-    a = (ArrayList<Integer>[]) new ArrayList[n + 1];
+
+    a = new ArrayList[n + 1];
 
     for (int i = 1; i <= n; i++) {
       a[i] = new ArrayList<>();
     }
-
     for (int i = 0; i < m; i++) {
       int x = scanner.nextInt();
       int y = scanner.nextInt();
@@ -38,6 +43,7 @@ public class Quiz_1260 {
     System.out.println();
     c = new boolean[n + 1];
     bfs(v);
+
   }
 
   private static void dfs(int start) {
@@ -46,25 +52,24 @@ public class Quiz_1260 {
     }
     c[start] = true;
     System.out.print(start + " ");
-    for (int y : a[start]) {
-      if (c[y] == false) {
-        dfs(y);
+    for (int value : a[start]) {
+      if (c[value] == false) {
+        dfs(value);
       }
     }
   }
 
   private static void bfs(int start) {
-    Queue<Integer> q = new LinkedList<>();
-    q.add(start);
+    Queue<Integer> queue = new LinkedList<>();
+    queue.offer(start);
     c[start] = true;
-
-    while (!q.isEmpty()) {
-      int x = q.remove();
+    while (!queue.isEmpty()) {
+      int x = queue.poll();
       System.out.print(x + " ");
-      for (int y : a[x]) {
-        if (c[y] == false) {
-          c[y] = true;
-          q.add(y);
+      for (int value : a[x]) {
+        if (c[value] == false) {
+          queue.offer(value);
+          c[value] = true;
         }
       }
     }

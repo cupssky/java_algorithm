@@ -4,22 +4,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 수정렬하기 2
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_2751 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
+    StringBuilder stringBuilder = new StringBuilder();
     int n = scanner.nextInt();
-    ArrayList<Integer> arrayList = new ArrayList<>();
+    ArrayList<Integer> list = new ArrayList<>();
 
-    for (int i = 0; i < n; i++) {
-      int value = scanner.nextInt();
-      arrayList.add(value);
+    while (n-- > 0) {
+      list.add(scanner.nextInt());
     }
+    Collections.sort(list);
 
-    Collections.sort(arrayList);
-
-    for (int i = 0; i < n; i++) {
-      System.out.println(arrayList.get(i));
+    for (int i : list) {
+      stringBuilder.append(i + "\n");
     }
+    System.out.print(stringBuilder);
   }
 }

@@ -1,34 +1,41 @@
 package baekjoon.sorts;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 좌표 정렬하기 2
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_11651 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    int n = scanner.nextInt();
-    int[][] array = new int[n][2];
+    int t = scanner.nextInt();
+    int[][] a = new int[t][2];
+    ArrayList<int[]> list = new ArrayList<>();
 
-    for (int i = 0; i < n; i++) {
-      array[i][0] = scanner.nextInt();
-      array[i][1] = scanner.nextInt();
+    while (t-- > 0) {
+      a[t][0] = scanner.nextInt();
+      a[t][1] = scanner.nextInt();
+      list.add(a[t]);
     }
-
-    Arrays.sort(array, new Comparator<int[]>() {
+    Collections.sort(list, new Comparator<int[]>() {
       @Override
-      public int compare(int[] x, int[] y) {
-        if (y[1] == x[1]) {
-          return Integer.compare(x[0], y[0]);
+      public int compare(int[] o1, int[] o2) {
+        if (o1[1] == o2[1]) {
+          return Integer.compare(o1[0], o2[0]);
         } else {
-          return Integer.compare(x[1], y[1]);
+          return Integer.compare(o1[1], o2[1]);
         }
       }
     });
 
-    for (int i = 0; i < n; i++) {
-      System.out.println(array[i][0] + " " + array[i][1]);
+    for (int[] value : list) {
+      System.out.println(value[0] + " " + value[1]);
     }
   }
 }

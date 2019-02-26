@@ -1,35 +1,53 @@
 package baekjoon.sorts;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 좌표 정렬하기
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_11650 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
-    int[][] array = new int[n][2];
+    ArrayList<Point> list = new ArrayList<>();
 
-    for (int i = 0; i < n; i++) {
-      array[i][0] = scanner.nextInt();
-      array[i][1] = scanner.nextInt();
+    while (n-- > 0) {
+      int x = scanner.nextInt();
+      int y = scanner.nextInt();
+      list.add(new Point(x, y));
     }
-
-    Arrays.sort(array, new Comparator<int[]>() {
+    Collections.sort(list, new Comparator<Point>() {
       @Override
-      public int compare(int[] x, int[] y) {
-        if (x[0] == y[0]) {
-          return Integer.compare(x[1], y[1]);
+      public int compare(Point o1, Point o2) {
+        if (o1.x == o2.x) {
+          return Integer.compare(o1.y, o2.y);
         } else {
-          return Integer.compare(x[0], y[0]);
+          return Integer.compare(o1.x, o2.x);
         }
       }
     });
-    for (int i = 0; i < n; i++) {
-      System.out.println(array[i][0] + " " + array[i][1]);
+
+    for (Point value : list) {
+      System.out.println(value.x + " " + value.y);
     }
-    scanner.close();
+  }
+
+  static class Point {
+
+    int x;
+    int y;
+
+    public Point(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
   }
 }
+
 

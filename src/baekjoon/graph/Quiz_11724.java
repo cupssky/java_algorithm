@@ -7,14 +7,16 @@ public class Quiz_11724 {
 
   static ArrayList<Integer>[] a;
   static boolean[] c;
-  static int count = 0;
+  static int count;
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     int n = scanner.nextInt();
     int m = scanner.nextInt();
-    a = (ArrayList<Integer>[]) new ArrayList[n + 1];
 
+    count = 0;
+    a = new ArrayList[n + 1];
+    c = new boolean[n + 1];
     for (int i = 1; i <= n; i++) {
       a[i] = new ArrayList<>();
     }
@@ -26,12 +28,12 @@ public class Quiz_11724 {
       a[y].add(x);
     }
 
-    c = new boolean[n + 1];
-
-    for (int i = 0; i < n; i++) {
-      dfs(i);
+    for (int i = 1; i <= n; i++) {
+      if (c[i] == false) {
+        dfs(i);
+        count++;
+      }
     }
-
     System.out.print(count);
   }
 
@@ -40,10 +42,9 @@ public class Quiz_11724 {
       return;
     }
     c[start] = true;
-    for (int y : a[start]) {
-      if (c[y] == false) {
-        dfs(y);
-        count++;
+    for (int value : a[start]) {
+      if (c[value] == false) {
+        dfs(value);
       }
     }
   }
