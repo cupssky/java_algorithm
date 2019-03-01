@@ -2,26 +2,29 @@ package baekjoon.math;
 
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. GCD 합
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_9613 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    int n = scanner.nextInt();
-
-    while (n-- > 0) {
-      long count = 0;
-      int number = scanner.nextInt();
-      int[] array = new int[number];
-      for (int i = 0; i < number; i++) {
-        array[i] = scanner.nextInt();
+    int t = scanner.nextInt();
+    while (t-- > 0) {
+      long sum = 0;
+      int n = scanner.nextInt();
+      int[] a = new int[n];
+      for (int i = 0; i < n; i++) {
+        a[i] = scanner.nextInt();
       }
-
-      for (int i = 0; i < number - 1; i++) {
-        for (int j = i + 1; j < number; j++) {
-          count += ucd(array[i], array[j]);
+      for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+          sum += ucd(a[i], a[j]);
         }
       }
-      System.out.println(count);
+      System.out.println(sum);
     }
   }
 

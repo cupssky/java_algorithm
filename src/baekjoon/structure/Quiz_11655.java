@@ -13,14 +13,14 @@ public class Quiz_11655 {
     Scanner scanner = new Scanner(System.in);
     String value = scanner.nextLine();
     StringBuilder stringBuilder = new StringBuilder();
-
-    for (char v : value.toCharArray()) {
-      if ((v >= 'a' && v <= 'm') || (v >= 'A' && v <= 'M')) {
+    for (int i = 0; i < value.length(); i++) {
+      char v = value.charAt(i);
+      if (v >= 'a' && v < 'n' || v >= 'A' && v < 'N') {
         stringBuilder.append((char) (v + 13));
-      } else if (v == ' ') {
-        stringBuilder.append(' ');
-      } else {
+      } else if (v >= 'n' && v <= 'z' || v >= 'N' && v <= 'Z') {
         stringBuilder.append((char) (v - 13));
+      } else {
+        stringBuilder.append(v);
       }
     }
     System.out.print(stringBuilder);

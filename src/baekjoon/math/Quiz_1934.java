@@ -2,21 +2,20 @@ package baekjoon.math;
 
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 최소공배수
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_1934 {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    int n = scanner.nextInt();
-    int[] array = new int[n];
-
-    for (int i = 0; i < n; i++) {
+    int t = scanner.nextInt();
+    while (t-- > 0) {
       int a = scanner.nextInt();
       int b = scanner.nextInt();
-      array[i] = (a * b) / ucd(a, b);
-    }
-
-    for (int i = 0; i < n; i++) {
-      System.out.println(array[i]);
+      System.out.println(a * b / ucd(a, b));
     }
   }
 
@@ -27,4 +26,6 @@ public class Quiz_1934 {
       return ucd(b, a % b);
     }
   }
+
+
 }

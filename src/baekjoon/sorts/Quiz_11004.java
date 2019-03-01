@@ -17,7 +17,7 @@ public class Quiz_11004 {
     for (int i = 0; i < n; i++) {
       a[i] = Integer.valueOf(num[i]);
     }
-
+    System.out.print(a[k - 1]);
   }
 
 

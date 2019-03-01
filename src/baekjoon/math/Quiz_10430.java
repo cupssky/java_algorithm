@@ -2,6 +2,11 @@ package baekjoon.math;
 
 import java.util.Scanner;
 
+/*
+    |--------------------------------------------------------------------------
+    | Note. 나머지
+    |--------------------------------------------------------------------------
+*/
 public class Quiz_10430 {
 
   public static void main(String[] args) {
